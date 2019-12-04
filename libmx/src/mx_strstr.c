@@ -4,9 +4,13 @@ char *mx_strstr(const char *haystack, const char *needle) {
     int needle_len = mx_strlen(needle);
     int haystack_len = mx_strlen(haystack);
 
-    if (needle_len == 0 && haystack_len == 0) // this special condition added to get such behavior as libc strstr()
+    if (!haystack || !needle)
+        return NULL;
+
+    // this special conditions added to get such behavior as libc strstr():
+    if (needle_len == 0 && haystack_len == 0)
         return "";
-    if (needle_len == 0 && haystack_len != 0) // this special condition added to get such behavior as libc strstr()
+    if (needle_len == 0 && haystack_len != 0)
         return (char *)haystack;
 
     for (int i = 0; haystack[i] != '\0'; i++) {

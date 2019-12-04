@@ -1,10 +1,12 @@
 #include "libmx.h"
 
 void mx_pop_back(t_list **head) {
-    if (head == NULL || *head == NULL) return;
+    t_list *walker = NULL;
 
-    t_list *walker = *head;
+    if (head == NULL || *head == NULL)
+        return;
 
+    walker = *head;
     if (walker->next == NULL) {
         free(*head);
         *head = NULL;

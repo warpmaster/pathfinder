@@ -35,6 +35,7 @@ long mx_a_seek_min_weight(a_list *head, const size_t i);
 void mx_a_print_list(a_list *head);
 void mx_a_delete_list(a_list **head);
 void mx_a_delete_longer_weights(a_list **head, long new_weight);
+a_list *mx_a_sort_list(a_list *head);
 
 bool mx_is_valid_num(const char *s);
 bool mx_is_valid_line(const char *s);

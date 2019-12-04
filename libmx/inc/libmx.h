@@ -8,7 +8,10 @@
 #include <stdbool.h>
 #include <wchar.h>
 #include <fcntl.h>
-#include <malloc/malloc.h>
+#include <malloc.h>   // malloc_usable_size(str)
+//#include <errno.h>
+//#include <stdarg.h>
+// #include <time.h>
 
 typedef struct s_list {
 	void *data;
