@@ -1,6 +1,6 @@
 NAME = pathfinder
 
-LIBAR = ./Libmx/libmx.a
+LIBAR = ./libmx/libmx.a
 
 DIROBJ = obj
 
@@ -8,7 +8,7 @@ DIRSRC = src
 
 DIRINC = inc
 
-LIB = ./Libmx
+LIB = ./libmx
 
 SRC = src/pathfinder.c \
 	src/mx_e_create_node.c \
@@ -29,6 +29,7 @@ SRC = src/pathfinder.c \
 	src/mx_a_print_list.c \
 	src/mx_a_delete_list.c \
 	src/mx_a_delete_longer_weights.c \
+	src/mx_a_sort_list.c \
 	src/mx_is_valid_num.c \
 	src/mx_is_valid_line.c \
 	src/mx_search_str.c \
@@ -60,6 +61,7 @@ OUT = pathfinder.o \
 	mx_a_print_list.o \
 	mx_a_delete_list.o \
 	mx_a_delete_longer_weights.o \
+	mx_a_sort_list.o \
 	mx_is_valid_num.o \
 	mx_is_valid_line.o \
 	mx_search_str.o \
@@ -78,7 +80,7 @@ CFLAGS = -std=c11 -Wall -Wextra -Wpedantic -Werror #-g -fsanitize=address
 
 all: install clean
 
-install: 
+install:
 	@cd $(LIB) && make install
 	@mkdir $(DIROBJ)
 	@clang $(CFLAGS) $(SRC) -c $(SRC) -I $(INC)
@@ -90,7 +92,7 @@ uninstall: clean
 	@rm -rf $(NAME)
 	@cd $(LIB) && make uninstall
 
-clean: 
+clean:
 	@rm -rf $(DIROBJ)
 	@cd $(LIB) && make clean
 

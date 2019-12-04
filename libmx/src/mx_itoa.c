@@ -1,11 +1,14 @@
 #include "libmx.h"
 
 char *mx_itoa(int number) {
-    char buffer[10];
+    char buffer[12];
     int i = 0;
     long num = number;
 
-    if (number == 0) return "0";
+    if (number == 0)
+        return "0";
+
+    mx_memset(buffer, '\0', 12);
 
     if (number < 0) {
         buffer[i++] = '-';
